@@ -4,8 +4,25 @@
   "description": "tree explorer UI module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "beefy demo.js"
   },
-  "author": "",
-  "license": "BSD"
+  "author": "max ogden",
+  "license": "BSD",
+  "dependencies": {
+    "global": "^4.2.1",
+    "mercury": "^8.0.0",
+    "observify": "^1.0.2"
+  },
+  "devDependencies": {
+    "beefy": "^2.1.1",
+    "browserify": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maxogden/tree-view.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxogden/tree-view/issues"
+  },
+  "homepage": "https://github.com/maxogden/tree-view"
 }
