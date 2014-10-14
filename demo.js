@@ -1,22 +1,30 @@
 var tree = require('./')
-var fs = require('fs')
+var path = require('path')
 
-var data = {
-  '/': [{
-    path: '/foo',
-    type: 'directory'
-  }],
-  '/foo': [{
-    path: '/foo/bar',
-    type: 'directory'
-  }],
-  '/foo/bar': [{
-    path: '/foo/bar/baz',
+var browser = tree()
+
+browser.on('directory', function(p, entry) {
+  browser.directory(p, [{
+    path: path.join(p, '/foo'),
     type: 'directory'
   }, {
-    path: '/foo/bar/test.js',
+    path: path.join(p, '/bar'),
+    type: 'directory'
+  }, {
+    path: path.join(p, '/baz'),
     type: 'file'
-  }]
-}
+  }])
+})
 
-tree(data)
+browser.appendTo(document.body)
+
+browser.directory('/', [{
+  path: '/foo',
+  type: 'directory'
+}, {
+  path: '/bar',
+  type: 'directory'
+}, {
+  path: '/baz',
+  type: 'file'
+}])
