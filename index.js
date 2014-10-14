@@ -64,7 +64,6 @@ module.exports = function(opts) {
   }
 
   var onclose = function(e) {
-    console.log('onclose', e)
     state[e.path] = null
     Object.keys(state).forEach(function(p) {
       if (path.join(p, '/').indexOf(path.join(e.path, '/')) === 0) state[p] = null
