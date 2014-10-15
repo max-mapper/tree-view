@@ -60,6 +60,7 @@ module.exports = function(opts) {
 
   var that = new events.EventEmitter()
   var root = {}
+  var selected
   var comp
 
   var onfile = function(e) {
@@ -80,6 +81,11 @@ module.exports = function(opts) {
 
   that.style = STYLE
 
+  that.select = function(cwd) {
+    selected = cwd
+    if (comp) comp.setState({selected:cwd})
+  }
+
   that.directory = function(cwd, entries) {
     root[cwd] = entries
     if (comp) comp.setState({root:root})
@@ -89,7 +95,7 @@ module.exports = function(opts) {
     if (typeof el === 'string') el = document.querySelector(el)
     if (opts.style !== false) defaultcss('tree-view', STYLE)
     comp = react.renderComponent(Browser({onopen:onopen, onclose:onclose, onfile:onfile}), el)
-    comp.setState({root:root})
+    comp.setState({root:root, selected:selected})
   }
 
   return that
