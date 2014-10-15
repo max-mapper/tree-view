@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "brfs": "^1.2.0",
-    "defaultcss": "^1.0.0",
+    "defaultcss": "^1.1.0",
     "react": "^0.11.2"
   },
   "devDependencies": {
