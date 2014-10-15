@@ -18,15 +18,15 @@
 }
 
 .tree-view .list-item {
-  padding: 3px;
   cursor: default;
 }
 
 .tree-view .name {
   background-repeat: no-repeat;
-  background-position: 2px 2px;
-  padding: 2px;
+  background-position: 2px 50%;
   padding-left: 25px;
+  line-height: 25px;
+  height: 25px;
 }
 
 .tree-view .file > .list-item .name {
@@ -42,7 +42,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  height: 21px;
+  height: 25px;
   background-color: #f5f5f5;
   z-index: -1;
 }
@@ -51,24 +51,25 @@
   content: '';
   float: left;
   width: 15px;
-  height: 15px;
+  height: 25px;
   background-image: url(images/chevron-down.png);
-  margin: 0px 2px;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
 }
 
 .tree-view .directory.closed > .list-item:before {
   content: '';
   float: left;
   width: 15px;
-  height: 15px;
+  height: 25px;
   background-image: url(images/chevron-right.png);
-  margin: 0px 2px;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
 }
 
 .tree-view .file > .list-item:before {
   content: '';
   float: left;
   width: 15px;
-  height: 15px;
-  margin: 2px;
+  height: 25px;
 }
