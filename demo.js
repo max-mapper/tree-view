@@ -3,7 +3,10 @@ var path = require('path')
 
 var browser = tree()
 
+document.body.style.fontFamily = 'helvetica'
+
 browser.on('directory', function(p, entry) {
+  console.log('You clicked on a directory (%s)', p)
   browser.directory(p, [{
     path: path.join(p, '/foo'),
     type: 'directory'
@@ -14,6 +17,10 @@ browser.on('directory', function(p, entry) {
     path: path.join(p, '/baz'),
     type: 'file'
   }])
+})
+
+browser.on('file', function(p, entry) {
+  console.log('You clicked on a file (%s)', p)
 })
 
 browser.appendTo(document.body)
