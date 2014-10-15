@@ -19,6 +19,9 @@
 
 .tree-view .list-item {
   cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .tree-view .name {
@@ -27,6 +30,7 @@
   padding-left: 25px;
   line-height: 25px;
   height: 25px;
+  margin-left: 15px;
 }
 
 .tree-view .file > .list-item .name {
@@ -49,7 +53,7 @@
 
 .tree-view .directory.open > .list-item:before {
   content: '';
-  float: left;
+  position: absolute;
   width: 15px;
   height: 25px;
   background-image: url(images/chevron-down.png);
@@ -59,7 +63,7 @@
 
 .tree-view .directory.closed > .list-item:before {
   content: '';
-  float: left;
+  position: absolute;
   width: 15px;
   height: 25px;
   background-image: url(images/chevron-right.png);
@@ -69,7 +73,7 @@
 
 .tree-view .file > .list-item:before {
   content: '';
-  float: left;
+  position: absolute;
   width: 15px;
   height: 25px;
 }
