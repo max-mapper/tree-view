@@ -4,10 +4,15 @@
   "description": "tree explorer UI module",
   "main": "index.js",
   "scripts": {
-    "start": "beefy demo.js"
+    "start": "beefy demo.js -- -t brfs"
   },
   "author": "max ogden",
   "license": "BSD",
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
+  },
   "dependencies": {
     "brfs": "^1.2.0",
     "defaultcss": "^1.0.0",
