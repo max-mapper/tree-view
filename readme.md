@@ -14,6 +14,7 @@ npm start
 ## Usage
 
 ``` js
+var path = require('path')
 var tree = require('tree-view')
 
 var browser = tree() // or tree({style:false}) to disable styling
