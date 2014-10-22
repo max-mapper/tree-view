@@ -6,6 +6,8 @@ Tree viewing widget for the browser
 npm install tree-view
 ```
 
+Try out the demo by doing
+
 ```
 npm install
 npm start
