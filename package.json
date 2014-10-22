@@ -1,6 +1,6 @@
 {
   "name": "tree-view",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "tree explorer UI module",
   "main": "index.js",
   "scripts": {
