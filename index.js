@@ -5,18 +5,6 @@ var fs = require('fs')
 var defaultcss = require('defaultcss')
 var DOM = react.DOM
 
-var CHEVRON_RIGHT = fs.readFileSync(__dirname+'/images/chevron-right.png', 'base64')
-var CHEVRON_DOWN = fs.readFileSync(__dirname+'/images/chevron-down.png', 'base64')
-var FOLDER = fs.readFileSync(__dirname+'/images/folder.png', 'base64')
-var FILE = fs.readFileSync(__dirname+'/images/file.png', 'base64')
-var STYLE = fs.readFileSync(__dirname+'/style.css', 'utf-8')
-
-STYLE = STYLE
-  .replace(/images\/file.png/g, 'data:image/png;base64,'+FILE)
-  .replace(/images\/folder.png/g, 'data:image/png;base64,'+FOLDER)
-  .replace(/images\/chevron-right.png/g, 'data:image/png;base64,'+CHEVRON_RIGHT)
-  .replace(/images\/chevron-down.png/g, 'data:image/png;base64,'+CHEVRON_DOWN)
-
 var Browser = react.createClass({
   getInitialState: function() {
     return {root:{}}
@@ -72,14 +60,12 @@ module.exports = function(opts) {
   }
 
   var onclose = function(e) {
-    root[e.path] = null
+    delete root[e.path]
     Object.keys(root).forEach(function(p) {
-      if (path.join(p, '/').indexOf(path.join(e.path, '/')) === 0) root[p] = null
+      if (path.join(p, '/').indexOf(path.join(e.path, '/')) === 0) delete root[p]
     })
     if (comp) comp.setState({root:root})
   }
-
-  that.style = STYLE
 
   that.select = function(cwd) {
     selected = cwd
@@ -90,10 +76,12 @@ module.exports = function(opts) {
     root[cwd] = entries
     if (comp) comp.setState({root:root})
   }
+  
+  that.directories = root
 
   that.appendTo = function(el) {
+    if (opts.style !== false) defaultcss('tree-view', require('./style'))
     if (typeof el === 'string') el = document.querySelector(el)
-    if (opts.style !== false) defaultcss('tree-view', STYLE)
     comp = react.renderComponent(Browser({onopen:onopen, onclose:onclose, onfile:onfile}), el)
     comp.setState({root:root, selected:selected})
   }
