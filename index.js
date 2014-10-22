@@ -1,7 +1,6 @@
 var path = require('path')
 var react = require('react')
 var events = require('events')
-var fs = require('fs')
 var defaultcss = require('defaultcss')
 var DOM = react.DOM
 
