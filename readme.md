@@ -13,6 +13,8 @@ npm install
 npm start
 ```
 
+![screenshot](screenshot.png)
+
 ## Usage
 
 ``` js
