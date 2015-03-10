@@ -6,10 +6,14 @@ Tree viewing widget for the browser
 npm install tree-view
 ```
 
+run the demo:
+
 ```
 npm install
 npm start
 ```
+
+![screenshot](screenshot.png)
 
 ## Usage
 
