@@ -1,6 +1,6 @@
 # tree-view
 
-Tree viewing widget for the browser
+Tree viewing widget for the browser. Uses React so it only re-renders parts of the tree that need updating without having to re-render the entire tree on every change.
 
 ```
 npm install tree-view
@@ -21,7 +21,7 @@ npm start
 var path = require('path')
 var tree = require('tree-view')
 
-var browser = tree() // or tree({style:false}) to disable styling
+var browser = tree() // or tree({style: false}) to disable styling
 
 browser.on('directory', function(p, entry) {
   console.log('You clicked on a directory (%s)', p)
